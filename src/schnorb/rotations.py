@@ -43,7 +43,7 @@ class Rotator:
         self.Us = []
 
         for l in range(self.lmax + 1):
-            U = np.zeros((2 * l + 1, 2 * l + 1), dtype=np.complex)
+            U = np.zeros((2 * l + 1, 2 * l + 1), dtype=complex)
             for m in range(-l, l + 1):
                 for n in range(-l, l + 1):
                     U[m + l, n + l] = self.Umn(l, m, n)
