@@ -41,7 +41,7 @@ spec:
         - |
           git clone https://github.com/tsereda/KBO_OO_Prediction.git
 
-          pip install schnetpack numpy==1.26.4 schnorb quaternion
+          pip install schnetpack numpy==1.26.4 schnorb quaternion spherical_functions
 
           wget https://a002dlils-kadurin-nabladft.obs.ru-moscow-1.hc.sbercloud.ru/data/nablaDFTv2/models_checkpoints/schnorb/model_2k_split.pt
 
