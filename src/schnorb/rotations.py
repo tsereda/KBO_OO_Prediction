@@ -1,7 +1,7 @@
 from itertools import chain
 
 import numpy as np
-import quaternion
+import Quaternion
 from scipy import linalg as la
 from spherical_functions import Wigner_D_matrices
 

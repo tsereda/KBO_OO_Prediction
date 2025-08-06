@@ -1,0 +1,78 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kbo-oo-prediction
+spec:
+  nodeSelector:
+    #topology.kubernetes.io/region: us-west
+    nautilus.io/linstor: "true"
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: nvidia.com/gpu.product
+            operator: In
+            values:
+            - NVIDIA-A10
+            - NVIDIA-GeForce-RTX-3090
+            - NVIDIA-GeForce-RTX-4090
+            - NVIDIA-TITAN-RTX
+            - NVIDIA-RTX-A5000
+            - Quadro-RTX-6000
+            - Tesla-V100-SXM2-32GB
+            - NVIDIA-A40
+            - NVIDIA-L40
+            - NVIDIA-RTX-A6000
+            - Quadro-RTX-8000
+
+  tolerations:
+    - key: nvidia.com/gpu
+      operator: Exists
+    - key: nvidia.com/gpu
+      operator: Exists
+      effect: PreferNoSchedule
+  containers:
+    - name: brats-processing
+      image: gitlab-registry.nrp-nautilus.io/prp/jupyter-stack/prp
+
+      command: ["/bin/bash", "-c"]
+      args:
+        - |
+          git clone https://github.com/tsereda/KBO_OO_Prediction.git
+
+          pip install schnetpack numpy==1.26.4 schnorb quaternion
+
+          wget https://a002dlils-kadurin-nabladft.obs.ru-moscow-1.hc.sbercloud.ru/data/nablaDFTv2/models_checkpoints/schnorb/model_2k_split.pt
+
+          python src/scripts/run_schnorb.py eval schnet example_data/h2o_hamiltonians.db temp_model_dir --split test --batch_size 8 --cuda
+          PYTHONPATH=/app/brats-synthesis/src python src/scripts/run_schnorb.py eval schnet example_data/h2o_hamiltonians.db temp_model_dir --split test --batch_size 8 --cuda
+          
+          tail -f /dev/null
+     
+      volumeMounts:
+        - name: workspace
+          mountPath: /app
+        - name: shm
+          mountPath: /dev/shm
+    
+      resources:
+        requests:
+          memory: 24Gi
+          cpu: "12"
+          nvidia.com/gpu: "1"
+        limits:
+          memory: 32Gi
+          cpu: "16"
+          nvidia.com/gpu: "1"
+ 
+  volumes:
+    - name: workspace
+      emptyDir:
+        sizeLimit: 50Gi
+    - name: shm
+      emptyDir:
+        medium: Memory
+        sizeLimit: 16Gi
+ 
+  restartPolicy: Never
