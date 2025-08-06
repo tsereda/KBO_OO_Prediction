@@ -16,7 +16,7 @@ import schnorb as stl
 def get_number_orbitals(database):
     basis_def = database.metadata['basisdef']
     basis_def = np.array(basis_def)
-    n_orbitals = np.zeros(basis_def.shape[0], dtype=np.int)
+    n_orbitals = np.zeros(basis_def.shape[0], dtype=int)
 
     for i in range(basis_def.shape[0]):
         n_orbitals[i] = int(np.count_nonzero(basis_def[i, :, 2]))

@@ -23,10 +23,10 @@ class Rotator:
                 l = ls[row]
                 elmt_lvec.append(l)
                 row += 2 * l + 1
-            self.lvec.append(np.array(elmt_lvec, dtype=np.int))
+            self.lvec.append(np.array(elmt_lvec, dtype=int))
 
         self.lsplit = np.cumsum(
-            (2 * np.arange(0., self.lmax, dtype=np.int) + 1) ** 2)
+            (2 * np.arange(0., self.lmax, dtype=int) + 1) ** 2)
 
         self._calc_U()
         self._calc_P()
@@ -35,7 +35,7 @@ class Rotator:
         self.Ps = []
 
         for l in range(self.lmax + 1):
-            sidx = np.arange(0, 2 * l + 1, 1, dtype=np.int)
+            sidx = np.arange(0, 2 * l + 1, 1, dtype=int)
             self.Ps.append(sidx)
 
     def _calc_U(self):
@@ -143,7 +143,7 @@ class OrcaRotator(Rotator):
         self.Ps = []
 
         for l in range(self.lmax + 1):
-            ms = np.zeros((2 * l + 1,), dtype=np.int)
+            ms = np.zeros((2 * l + 1,), dtype=int)
             ms[2::2] = -np.arange(1, l + 1, 1)
             self.Ps.append(np.argsort(np.argsort(ms)))
             ms[1:-1:2] = np.arange(1, l + 1, 1)
