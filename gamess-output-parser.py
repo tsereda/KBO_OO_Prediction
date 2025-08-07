@@ -284,13 +284,12 @@ class GAMESSParser:
             print(row)
     
     def _print_matrix(self, name: str, matrix: Optional[np.ndarray]):
-        """Print density matrix summary (lower triangle only) with explanations."""
+        """Print density matrix summary with explanations."""
         if matrix is None:
             return
         
-        print(f"\n{name} ({matrix.shape[0]}x{matrix.shape[1]}) - Extracted directly from GAMESS output:")
+        print(f"\n{name} ({matrix.shape[0]}x{matrix.shape[1]}):")
         
-        # Add explanatory text based on matrix type
         if "Original Oriented Density" in name:
             print("  • Diagonal: Electron populations | Off-diagonal: Orbital overlap/mixing")
             print(f"  • Total electrons: {np.trace(matrix):.6f}")
@@ -321,7 +320,7 @@ class GAMESSParser:
         if not kei_data['bonds']:
             return
         
-        print(f"\nKinetic Energy Interaction Bond Orders (KEI-BO) - Parsed directly from GAMESS output:")
+        print(f"\nKinetic Energy Interaction Bond Orders (KEI-BO):")
         print("  • Negative values: Bonding interactions | Positive values: Anti-bonding")
         print("  • Larger |KEI-BO|: Stronger kinetic energy interaction")
         print()

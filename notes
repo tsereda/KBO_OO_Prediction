@@ -1,2 +1,13 @@
 pick out hydrogens
 
+ionic and covalent picture
+connection between partial charges and bond orders
+
+old school fortran, allocatable array
+
+ATLIST(1) = 1,1,6,1,1 (methane) nuclear charge instead of characters
+ORBLIST(1) = 1,1,4,1     
+
+ATLIST(1) = ? (Methalyne)
+
+go through log
