@@ -1,0 +1,1258 @@
+1 : quao.inp
+----- GAMESS execution script 'rungms' -----
+This job is running on host Monkeybutt-4.local
+under operating system Darwin at Fri Jun 6 13:05:41 CDT 2025
+Available scratch disk space (Kbyte units) at beginning of the job is
+Filesystem   1024-blocks      Used Available Capacity iused     ifree %iused  Mounted on
+/dev/disk3s5   239362496 195776292  21264604    91% 1887653 212646040    1%   /System/Volumes/Data
+GAMESS temporary binary files will be written to .
+GAMESS supplementary output files will be written to .
+Copying input file /Users/gschoend/gamess-quao/tests/standard/quao.inp to your run's scratch directory...
+cp /Users/gschoend/gamess-quao/tests/standard/quao.inp ./quao.F05
+unset echo
+setenv NO_STOP_MESSAGE 1
+setenv AUXDATA /Users/gschoend/gamess-aambs/auxdata
+setenv EXTBAS /dev/null
+setenv NUCBAS /Users/gschoend/gamess-quao/tests/standard/quao.nucbas
+setenv EXTCAB /Users/gschoend/gamess-aambs/auxdata/AUXBAS/auxdef21
+setenv POSBAS /Users/gschoend/gamess-quao/tests/standard/quao.posbas
+setenv DFTBPAR /Users/gschoend/gamess-aambs/auxdata/DFTB
+setenv ERICFMT /Users/gschoend/gamess-aambs/auxdata/ericfmt.dat
+setenv MCPPATH /Users/gschoend/gamess-aambs/auxdata/MCP
+setenv BASPATH /Users/gschoend/gamess-aambs/auxdata/BASES
+setenv QUANPOL /Users/gschoend/gamess-aambs/auxdata/QUANPOL
+setenv MAKEFP ./quao.efp
+setenv GAMMA ./quao.gamma
+setenv TRAJECT ./quao.trj
+setenv RESTART ./quao.rst
+setenv QMWAVE ./quao.qmw
+setenv MDDIP ./quao.dip
+setenv OPTHES1 ./quao.hs1
+setenv OPTHES2 ./quao.hs2
+setenv FCIDUMP ./quao.FCIDUMP
+setenv XYZ ./quao.xyz
+setenv IRCDATA ./quao.F04
+setenv INPUT ./quao.F05
+setenv PUNCH ./quao.dat
+setenv NAMDRST ./quao.namdrst
+setenv AOINTS ./quao.F08
+setenv MOINTS ./quao.F09
+setenv DICTNRY ./quao.F10
+setenv DRTFILE ./quao.F11
+setenv CIVECTR ./quao.F12
+setenv CASINTS ./quao.F13
+setenv CIINTS ./quao.F14
+setenv WORK15 ./quao.F15
+setenv WORK16 ./quao.F16
+setenv CSFSAVE ./quao.F17
+setenv FOCKDER ./quao.F18
+setenv WORK19 ./quao.F19
+setenv DASORT ./quao.F20
+setenv DIABDAT ./quao.F21
+setenv DFTINTS ./quao.F21
+setenv DFTGRID ./quao.F22
+setenv JKFILE ./quao.F23
+setenv ORDINT ./quao.F24
+setenv EFPIND ./quao.F25
+setenv PCMDATA ./quao.F26
+setenv PCMINTS ./quao.F27
+setenv SVPWRK1 ./quao.F26
+setenv SVPWRK2 ./quao.F27
+setenv COSCAV ./quao.F26
+setenv COSDATA ./quao.cosmo
+setenv COSPOT ./quao.pot
+setenv MLTPL ./quao.F28
+setenv MLTPLT ./quao.F29
+setenv DAFL30 ./quao.F30
+setenv SOINTX ./quao.F31
+setenv SOINTY ./quao.F32
+setenv SOINTZ ./quao.F33
+setenv SORESC ./quao.F34
+setenv RISM01 ./quao.F26R
+setenv RISM02 ./quao.F27R
+setenv QOPWRF ./quao.wrf
+setenv GCILIST ./quao.F37
+setenv HESSIAN ./quao.F38
+setenv QMMMTEI ./quao.F39
+setenv SOCCDAT ./quao.F40
+setenv AABB41 ./quao.F41
+setenv BBAA42 ./quao.F42
+setenv BBBB43 ./quao.F43
+setenv REMD ./quao.F44
+setenv UNV ./quao.F45
+setenv UNPV ./quao.F46
+setenv MCQD50 ./quao.F50
+setenv MCQD51 ./quao.F51
+setenv MCQD52 ./quao.F52
+setenv MCQD53 ./quao.F53
+setenv MCQD54 ./quao.F54
+setenv MCQD55 ./quao.F55
+setenv MCQD56 ./quao.F56
+setenv MCQD57 ./quao.F57
+setenv MCQD58 ./quao.F58
+setenv MCQD59 ./quao.F59
+setenv MCQD60 ./quao.F60
+setenv MCQD61 ./quao.F61
+setenv MCQD62 ./quao.F62
+setenv MCQD63 ./quao.F63
+setenv MCQD64 ./quao.F64
+setenv NMRINT1 ./quao.F61
+setenv NMRINT2 ./quao.F62
+setenv NMRINT3 ./quao.F63
+setenv NMRINT4 ./quao.F64
+setenv NMRINT5 ./quao.F65
+setenv NMRINT6 ./quao.F66
+setenv DCPHFH2 ./quao.F67
+setenv DCPHF21 ./quao.F68
+setenv ELNUINT ./quao.F67
+setenv NUNUINT ./quao.F68
+setenv GVVPT ./quao.F69
+setenv NUMOIN ./quao.F69
+setenv NUMOCAS ./quao.F70
+setenv NUELMO ./quao.F71
+setenv NUELCAS ./quao.F72
+setenv EPOVRLP ./quao.F73
+setenv RIVMAT ./quao.F51
+setenv RIT2A ./quao.F52
+setenv RIT3A ./quao.F53
+setenv RIT2B ./quao.F54
+setenv RIT3B ./quao.F55
+setenv KI ./quao.F47
+setenv BI ./quao.F48
+setenv PRMERI ./quao.F49
+setenv TRSERI ./quao.F50
+setenv PVP ./quao.F51
+setenv TPVPI ./quao.F52
+setenv TPVPJ ./quao.F53
+setenv PPVPP ./quao.F54
+setenv TPPVPP ./quao.F55
+setenv DEN2P1 ./quao.F70
+setenv DEN2P2 ./quao.F71
+setenv DEN2P3 ./quao.F72
+setenv DEN2P4 ./quao.F73
+setenv DEN2NM ./quao.F74
+setenv DEN2OPT ./quao.F75
+setenv GMCREF ./quao.F70
+setenv GMCO2R ./quao.F71
+setenv GMCROC ./quao.F72
+setenv GMCOOC ./quao.F73
+setenv GMCCC0 ./quao.F74
+setenv GMCHMA ./quao.F75
+setenv GMCEI1 ./quao.F76
+setenv GMCEI2 ./quao.F77
+setenv GMCEOB ./quao.F78
+setenv GMCEDT ./quao.F79
+setenv GMCERF ./quao.F80
+setenv GMCHCR ./quao.F81
+setenv GMCGJK ./quao.F82
+setenv GMCGAI ./quao.F83
+setenv GMCGEO ./quao.F84
+setenv GMCTE1 ./quao.F85
+setenv GMCTE2 ./quao.F86
+setenv GMCHEF ./quao.F87
+setenv GMCMOL ./quao.F88
+setenv GMCMOS ./quao.F89
+setenv GMCWGT ./quao.F90
+setenv GMCRM2 ./quao.F91
+setenv GMCRM1 ./quao.F92
+setenv GMCR00 ./quao.F93
+setenv GMCRP1 ./quao.F94
+setenv GMCRP2 ./quao.F95
+setenv GMCVEF ./quao.F96
+setenv GMCDIN ./quao.F97
+setenv GMC2SZ ./quao.F98
+setenv GMCCCS ./quao.F99
+unset echo
+./quao.dat
+/Users/gschoend/gamess-aambs/ddikick.x /Users/gschoend/gamess-aambs/gamess.00.x quao -ddi 1 1 Monkeybutt-4.local -scr .
+
+ Distributed Data Interface kickoff program.
+ Initiating 1 compute processes on 1 nodes to run the following command:
+ /Users/gschoend/gamess-aambs/gamess.00.x quao 
+
+          *******************************************************
+          *                                                     *
+          *          GAMESS VERSION = 31 MAR 2024 (R1)          *
+          *                                                     *
+          *              doi.org/10.1063/5.0005188              *
+          *                                                     *
+          **************** 64 BIT LINUX VERSION *****************
+ 
+           git commit: aaf19eb3029540a7c869a2e7af33c1e61b0114ea
+ 
+
+  GAMESS HAS BEEN MADE POSSIBLE WITH IMPORTANT CONTRIBUTIONS FROM
+  THE FOLLOWING INDIVIDUALS (IN ALPHABETICAL ORDER):
+
+     IVANA ADAMOVIC, CHRISTINE AIKENS, TOMOKO AKAMA,
+     MELISA ALKAN, YURI ALEXEEV, YURIKO AOKI, POOJA ARORA,
+     TOSHIO ASADA, ANDREY ASADCHEV, KIM K. BALDRIDGE,
+     PRADIPTA BANDYOPADHYAY, TAYLOR A. BARNES, MARIA BARYSZ,
+     ROB BELL, JONATHAN BENTZ, COLLEEN BERTONI,
+     JERRY A. BOATZ, BRETT BODE, KURT BRORSEN, KURT R. BRORSEN,
+     LAIMUTIS BYTAUTAS, CALEB CARLIN, LAURA CARRINGTON,
+     GALINA CHABAN, BENOIT CHAMPAGNE, WEI CHEN, MAHITO CHIBA,
+     DAN CHIPMAN, CHEOL HO CHOI, TANNER CULPITT,
+     DIPAYAN DATTA, PAUL DAY, ALBERT DEFUSCO,
+     NUWAN DESILVA, J. EMILIANO DEUSTUA,
+     TIM DUDLEY, MICHEL DUPUIS, STEVEN T. ELBERT,
+     DMITRI FEDOROV, KATHERINE FERRERAS, MICHAEL FILATOV,
+     ALEX FINDLATER,GRAHAM FLETCHER, MARK FREITAG,
+     CHRISTIAN FRIEDL, DAVID GARMER, 
+     IGOR S. GERASIMOV, KURT GLAESEMANN,
+     MARK S. GORDON, JEFFREY R. GOUR, FENG LONG GU,
+     EMILIE B. GUIDEZ, ANASTASIA GUNINA, SHARON HAMMES-SCHIFFER,
+     MASATAKE HARUTA, KIMIHIKO HIRAO, YASUHIRO IKABATA,
+     TZVETELIN IORDANOV, STEPHAN IRLE, KAZUYA ISHIMURA,
+     JOE IVANIC, FRANK JENSEN, JAN H. JENSEN, VISVALDAS KAIRYS,
+     MUNEAKI KAMIYA, MICHIO KATOUDA, NAOAKI KAWAKAMI, DAN KEMP,
+     BERNARD KIRTMAN, KAZUO KITAURA, MARIUSZ KLOBUKOWSKI,
+     MASATO KOBAYASHI, KONSTANTIN KOMAROV, PRAKASHAN KORAMBATH,
+     JACEK KORCHOWIEC, SHIRO KOSEKI, KAROL KOWALSKI,
+     JIMMY KROMANN, STANISLAW A. KUCHARSKI, HENRY KURTZ,
+     SAROM SOK LEANG, SEUNGHOON LEE, HUI LI, SHUHUA LI, WEI LI,
+     JESSE J. LUTZ, ALEKSANDR O. LYKHIN,
+     ILIAS MAGOULAS, MARCIN MAKOWSKI,
+     JOANI MATO, NIKITA MATSUNAGA, BENEDETTA MENNUCCI,
+     GRANT MERRILL, NORIYUKI MINEZAWA, VLADIMIR MIRONOV,
+     EISAKU MIYOSHI, JOHN A. MONTGOMERY JR., HIROTOSHI MORI,
+     JONATHAN MULLIN, MONIKA MUSIAL, SHIGERU NAGASE,
+     TAKESHI NAGATA, HIROMI NAKAI, TAKAHITO NAKAJIMA,
+     YUYA NAKAJIMA, HARUYUKI NAKANO, HIROYA NAKATA, SEAN NEDD,
+     HEATHER NETZLOFF, KIET A. NGUYEN, YOSHIO NISHIMOTO,
+     BOSILJKA NJEGIC, RYAN OLSON, MIKE PAK, ROBERTO PEVERATI,
+     BUU PHAM, PIOTR PIECUCH, ANNA POMOGAEVA, DAVID POOLE,
+     SPENCER PRUITT, OLIVIER QUINET, LUKE ROSKOP,
+     KLAUS RUEDENBERG, ANDREW SAND, TOSAPORN SATTASATHUCHANA,
+     NOZOMI SAWADA, MICHAEL W. SCHMIDT, PATRICK E. SCHNEIDER,
+     JUNJI SEINO, PRACHI SHARMA, JUN SHEN, JIM SHOEMAKER,
+     GEORGE SCHOENDORFF, YINAN SHU, DEJUN SI, JONATHAN SKONE,
+     LYUDMILA SLIPCHENKO, TONY SMITH, JIE SONG, MARK SPACKMAN,
+     CASPER STEINMANN, WALT STEVENS, PEIFENG SU, SHUJUN SU,
+     CHET SWALINA, CHINAMI TAKASHIMA, TETSUYA TAKETSUGU,
+     ZHEN TAO, NANDUN THELLAMUREGE, ANANTA TIWARI,
+     SEIKEN TOKURA, JACOPO TOMASI,
+     TSUGUKI TOUMA, TAKAO TSUNEDA, HIROAKI UMEDA,
+     JORGE LUIS GALVEZ VALLEJO, YALI WANG, SIMON WEBB,
+     AARON WEST, THERESA L. WINDUS, MARTA WLOCH,
+     PENG XU, KIYOSHI YAGI, SUSUMU YANAGISAWA, YANG YANG,
+     SOOHAENG YOO, TAKESHI YOSHIKAWA, FEDERICO ZAHARIEV,
+     TOBY ZENG
+
+  WHO ARE SUPPORTED BY THEIR INSTITUTION/UNIVERSITY/COMPANY/GROUP
+  (IN ALPHABETICAL ORDER):
+
+     EP ANALYTICS,
+     FACULTES UNIVERSITAIRES NOTRE-DAME DE LA PAIX,
+     INSTITUTE FOR MOLECULAR SCIENCE, IOWA STATE UNIVERSITY,
+     JACKSON STATE UNIVERSITY, JOHANNES KEPLER UNIVERSITY LINZ,
+     KYUNGPOOK NATIONAL UNIVERSITY
+     KYUSHU UNIVERSITY, MICHIGAN STATE UNIVERSITY,
+     MIE UNIVERSITY, THE MOLECULAR SCIENCES SOFTWARE INSTITUTE,
+     MOSCOW STATE UNIVERSITY,
+     N. COPERNICUS UNIVERSITY, NAGOYA UNIVERSITY,
+     NANJING UNIVERSITY, NAT. INST. OF ADVANCED INDUSTRIAL
+     SCIENCE AND TECHNOLOGY, NATIONAL INST. OF STANDARDS AND
+     TECHNOLOGY, NESMEYANOV INSTITUTE OF ORGANOELEMENT COMPOUNDS
+     OF RUSSIAN ACADEMY OF SCIENCES, OSAKA PREFECTURE UNIVERSITY,
+     PENNSYLVANIA STATE UNIVERSITY, TOKYO INSTITUTE OF TECHNOLOGY,
+     UNIVERSITY OF AARHUS, UNIVERSITY OF ALBERTA,
+     UNIVERSITY OF CALIFORNIA AT SANTA BARBARA,
+     UNIVERSITY OF COPENHAGEN, UNIVERSITY OF IOWA,
+     UNIVERSITY OF MEMPHIS, UNIVERSITY OF MINNESOTA,
+     UNIVERSITY OF NEBRASKA, UNIVERSITY OF NEW ENGLAND,
+     UNIVERSITY OF NOTRE DAME, UNIVERSITY OF PISA,
+     UNIVERSITY OF SILESIA, UNIVERSITY OF TOKYO,
+     UNIVERSITY OF ZURICH, WASEDA UNIVERSITY,
+     YALE UNIVERSITY
+
+  GAMESS SOFTWARE MANAGEMENT TEAM FOR THIS RELEASE:
+     MARK S. GORDON (TEAM LEAD),
+     BRETT BODE (SENIOR ADVISOR),
+     GIUSEPPE BARCA,
+     COLLEEN BERTONI,
+     KRISTOPHER KEIPERT (ADVISOR),
+     SAROM S. LEANG (DEVELOPMENT LEAD),
+     BUU PHAM,
+     JACKSON HAYES (WEBSITE ADMINISTRATOR),
+     PENG XU
+
+ EXECUTION OF GAMESS BEGUN 13:05:41 06-JUN-2025    
+
+            ECHO OF THE FIRST FEW INPUT CARDS -
+ INPUT CARD> $CONTRL local=svd SCFTYP=RHF COORD=ZMT NZVAR=0 $END                            
+ INPUT CARD> $SYSTEM TIMLIM=1 MWORDS=1 $END                                                 
+ INPUT CARD> $local orient=.t. $end                                                         
+ INPUT CARD> $scf vvos=.t. $end                                                             
+ INPUT CARD> $STATPT OPTTOL=1.0E-5  $END                                                    
+ INPUT CARD> $BASIS  GBASIS=STO NGAUSS=2 $END                                               
+ INPUT CARD> $GUESS  GUESS=HUCKEL $END                                                      
+ INPUT CARD> $DATA                                                                          
+ INPUT CARD>Methylene...1-A-1 state...RHF/STO-2G                                            
+ INPUT CARD>Cnv  2                                                                          
+ INPUT CARD>                                                                                
+ INPUT CARD>C                                                                               
+ INPUT CARD>H  1 rCH                                                                        
+ INPUT CARD>H  1 rCH  2 aHCH                                                                
+ INPUT CARD>                                                                                
+ INPUT CARD>rCH=1.09                                                                        
+ INPUT CARD>aHCH=110.0                                                                      
+ INPUT CARD> $END                                                                           
+ INPUT CARD>! TRAVIS-CI SKIP                                                                
+ INPUT CARD>                                                                                
+      1000000 WORDS OF MEMORY AVAILABLE
+
+     BASIS OPTIONS
+     -------------
+     GBASIS=STO          IGAUSS=       2      POLAR=NONE    
+     NDFUNC=       0     NFFUNC=       0     DIFFSP=       F
+     NPFUNC=       0      DIFFS=       F     BASNAM=        
+
+
+     RUN TITLE
+     ---------
+ Methylene...1-A-1 state...RHF/STO-2G                                            
+
+ THE POINT GROUP OF THE MOLECULE IS CNV     
+ THE ORDER OF THE PRINCIPAL AXIS IS     2
+
+ YOUR FULLY SUBSTITUTED Z-MATRIX IS
+ C   
+ H      1   1.0900000
+ H      1   1.0900000  2  110.0000
+
+ THE MOMENTS OF INERTIA ARE (AMU-ANGSTROM**2)
+ IXX=     0.675   IYY=     1.607   IZZ=     2.281
+
+ ATOM      ATOMIC                      COORDINATES (BOHR)
+           CHARGE         X                   Y                   Z
+ C           6.0     0.0000000000        0.0000000000       -0.1699098334
+ H           1.0    -1.6872904675        0.0000000000        1.0115436711
+ H           1.0     1.6872904675        0.0000000000        1.0115436711
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 C          2 H          3 H     
+
+   1 C       0.0000000    1.0900000 *  1.0900000 *
+   2 H       1.0900000 *  0.0000000    1.7857515 *
+   3 H       1.0900000 *  1.7857515 *  0.0000000  
+
+  * ... LESS THAN  3.000
+
+
+     ATOMIC BASIS SET
+     ----------------
+ THE CONTRACTED PRIMITIVE FUNCTIONS HAVE BEEN UNNORMALIZED
+ THE CONTRACTED BASIS FUNCTIONS ARE NOW NORMALIZED TO UNITY
+
+  SHELL TYPE  PRIMITIVE        EXPONENT          CONTRACTION COEFFICIENT(S)
+
+ C         
+
+      1   S       1            27.3850330    0.430128498301
+      1   S       2             4.8745221    0.678913530502
+
+      2   L       3             1.1367482    0.049471769201    0.511540707616
+      2   L       4             0.2883094    0.963782408119    0.612819896119
+
+ H         
+
+      4   S       5             1.3097564    0.430128498301
+      4   S       6             0.2331360    0.678913530502
+
+ TOTAL NUMBER OF BASIS SET SHELLS             =    4
+ NUMBER OF CARTESIAN GAUSSIAN BASIS FUNCTIONS =    7
+ NUMBER OF ELECTRONS                          =    8
+ CHARGE OF MOLECULE                           =    0
+ SPIN MULTIPLICITY                            =    1
+ NUMBER OF OCCUPIED ORBITALS (ALPHA)          =    4
+ NUMBER OF OCCUPIED ORBITALS (BETA )          =    4
+ TOTAL NUMBER OF ATOMS                        =    3
+ THE NUCLEAR REPULSION ENERGY IS        6.1221376700
+
+     $CONTRL OPTIONS
+     ---------------
+ SCFTYP=RHF          RUNTYP=ENERGY       EXETYP=RUN     
+ MPLEVL=       0     CITYP =NONE         CCTYP =NONE         VBTYP =NONE    
+ DFTTYP=NONE         TDDFT =NONE    
+ MULT  =       1     ICHARG=       0     NZVAR =       0     COORD =ZMT     
+ PP    =NONE         RELWFN=NONE         LOCAL =SVD          NUMGRD=       F
+ ISPHER=      -1     NOSYM =       0     MAXIT =      30     UNITS =ANGS    
+ PLTORB=       F     MOLPLT=       F     AIMPAC=       F     FRIEND=        
+ NPRINT=       7     IREST =       0     GEOM  =INPUT   
+ NORMF =       0     NORMP =       0     ITOL  =      20     ICUT  =       9
+ INTTYP=BEST         GRDTYP=BEST         QMTTOL= 1.0E-06
+
+     $SYSTEM OPTIONS
+     ---------------
+  REPLICATED MEMORY=     1000000 WORDS (ON EVERY NODE).
+ DISTRIBUTED MEMDDI=           0 MILLION WORDS IN AGGREGATE,
+ MEMDDI DISTRIBUTED OVER   1 PROCESSORS IS           0 WORDS/PROCESSOR.
+ TOTAL MEMORY REQUESTED ON EACH PROCESSOR=     1000000 WORDS.
+ TIMLIM=           1.00 MINUTES, OR       0.0 DAYS.
+ PARALL= F  BALTYP=  DLB     KDIAG=    0  COREFL= F
+ MXSEQ2=     300 MXSEQ3=     150  mem10=         0  mem22=         0
+
+          ----------------
+          PROPERTIES INPUT
+          ----------------
+
+     MOMENTS            FIELD           POTENTIAL          DENSITY
+ IEMOM =       1   IEFLD =       0   IEPOT =       0   IEDEN =       0
+ WHERE =COMASS     WHERE =NUCLEI     WHERE =NUCLEI     WHERE =NUCLEI  
+ OUTPUT=BOTH       OUTPUT=BOTH       OUTPUT=BOTH       OUTPUT=BOTH    
+ IEMINT=       0   IEFINT=       0                     IEDINT=       0
+                                                       MORB  =       0
+          EXTRAPOLATION IN EFFECT
+ ORBITAL PRINTING OPTION: NPREO=     1     7     2     1
+
+     ----------------------
+     TARGET OFFLOAD OPTIONS
+     ----------------------
+     RHF    =       F
+     CPHF    =       F
+     MAKEFP =       F
+
+     -------------------------------
+     INTEGRAL TRANSFORMATION OPTIONS
+     -------------------------------
+     NWORD  =            0
+     CUTTRF = 1.0E-09     MPTRAN =       0
+     DIRTRF =       F     AOINTS =DUP     
+
+          -----------------------------
+          LOCALIZATION INPUT PARAMETERS
+          -----------------------------
+           LOCAL=SVD           NOUTA=       1
+          PRTLOC=       F      NOUTB=       0
+          MAXLOC=     250     CVGLOC=1.00E-06
+           FCORE=       T     SYMLOC=       F
+          MOIDON=       F     EDCOMP=       F
+          DIPDCM=       F      NPROT=       0
+          QADDCM=       F     DEPRNT=       F
+          POLNUM=       F     ORIENT=       T
+          POLDYN=       F      VMTOL=1.50E-01
+          NPRDTL=       2     IBOYAL=       1
+          EXTLOC=NONE         IVVTYP=       0
+          PADSVD=       F
+          MOOUTA =      1
+
+          ----------------------
+          INTEGRAL INPUT OPTIONS
+          ----------------------
+ NOPK  =       1 NORDER=       0 SCHWRZ=       F
+
+   --- ENCODED Z MATRIX ---
+ COORD  TYPE   I   J   K   L   M   N
+    1      1    3   1
+    2      1    2   1
+    3      2    2   1   3
+
+ THE DETERMINANT OF THE G MATRIX IS 10**(    -1)
+
+     ------------------------------------------
+     THE POINT GROUP IS CNV, NAXIS= 2, ORDER= 4
+     ------------------------------------------
+
+     DIMENSIONS OF THE SYMMETRY SUBSPACES ARE
+ A1  =    4     A2  =    0     B1  =    2     B2  =    1
+
+ ..... DONE SETTING UP THE RUN .....
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    27.35%
+
+          ********************
+          1 ELECTRON INTEGRALS
+          ********************
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    27.57%
+
+          -------------
+          GUESS OPTIONS
+          -------------
+          GUESS =HUCKEL            NORB  =       0          NORDER=       0
+          MIX   =       F          PRTMO =       F          PUNMO =       F
+          TOLZ  = 1.0E-08          TOLE  = 1.0E-05
+          SYMDEN=       F          PURIFY=       F
+
+ INITIAL GUESS ORBITALS GENERATED BY HUCKEL   ROUTINE.
+ HUCKEL GUESS REQUIRES      2620 WORDS.
+
+ SYMMETRIES FOR INITIAL GUESS ORBITALS FOLLOW.   BOTH SET(S).
+     4 ORBITALS ARE OCCUPIED (    1 CORE ORBITALS).
+     2=A1       3=B1       4=A1       5=B2       6=B1       7=A1  
+ ...... END OF INITIAL ORBITAL SELECTION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    28.42%
+
+                    ----------------------
+                    AO INTEGRAL TECHNOLOGY
+                    ----------------------
+     S,P,L SHELL ROTATED AXIS INTEGRALS, REPROGRAMMED BY
+        KAZUYA ISHIMURA (IMS) AND JOSE SIERRA (SYNSTAR).
+     S,P,D,L SHELL ROTATED AXIS INTEGRALS PROGRAMMED BY
+        KAZUYA ISHIMURA (INSTITUTE FOR MOLECULAR SCIENCE).
+     S,P,D,F,G SHELL TO TOTAL QUARTET ANGULAR MOMENTUM SUM 5,
+        ERIC PROGRAM BY GRAHAM FLETCHER (ELORET AND NASA ADVANCED
+        SUPERCOMPUTING DIVISION, AMES RESEARCH CENTER).
+     S,P,D,F,G,L SHELL GENERAL RYS QUADRATURE PROGRAMMED BY
+        MICHEL DUPUIS (PACIFIC NORTHWEST NATIONAL LABORATORY).
+
+          --------------------
+          2 ELECTRON INTEGRALS
+          --------------------
+
+ THE -PK- OPTION IS OFF, THE INTEGRALS ARE NOT IN SUPERMATRIX FORM.
+ STORING   15000 INTEGRALS/RECORD ON DISK, USING 12 BYTES/INTEGRAL.
+ TWO ELECTRON INTEGRAL EVALUATION REQUIRES   89366 WORDS OF MEMORY.
+ II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =   34
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   34
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =                 141
+          1 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    35.55%
+
+          --------------------------
+                 RHF SCF CALCULATION
+          --------------------------
+
+     NUCLEAR ENERGY =         6.1221376700
+     MAXIT =   30     NPUNCH=    2
+     EXTRAP=T  DAMP=F  SHIFT=F  RSTRCT=F  DIIS=F  DEM=F  SOSCF=F
+     DENSITY MATRIX CONV=  1.00E-05
+     MEMORY REQUIRED FOR RHF ITERS=     30441 WORDS.
+
+ ITER EX DEM     TOTAL ENERGY        E CHANGE  DENSITY CHANGE    DIIS ERROR
+   1  0  0      -37.1725772831   -37.1725772831   0.380764105   0.000000000
+   2  1  0      -37.2279756203    -0.0553983372   0.131481807   0.000000000
+   3  2  0      -37.2317322477    -0.0037566275   0.046548651   0.000000000
+   4  3  0      -37.2321932103    -0.0004609626   0.016847695   0.000000000
+   5  0  0      -37.2322568537    -0.0000636433   0.010114675   0.000000000
+   6  1  0      -37.2322678008    -0.0000109472   0.000054437   0.000000000
+   7  2  0      -37.2322678015    -0.0000000006   0.000017898   0.000000000
+   8  3  0      -37.2322678015    -0.0000000001   0.000006281   0.000000000
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.0 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RHF ENERGY IS      -37.2322678015 AFTER   8 ITERATIONS
+
+ FORMING VIRTUAL VALENCE ORBITALS FOR RHF...
+ THE ATOMS POSSESS    1 CHEMICAL CORES, AND    6 VALENCE ORBITALS.
+ THIS MOLECULE HAS    3 OCCUPIED VALENCE ORBITALS,
+ SO WE ARE SEEKING    3  VIRTUAL VALENCE ORBITALS FROM
+ WITHIN THE MOLECULE'S VIRTUAL SPACE OF DIMENSION    3
+
+ THERE SHOULD BE A CLEAR DROPOFF IN THE EIGENVALUES OF -B- BETWEEN THE
+ VALENCE VIRTUAL AND EXTERNAL VIRTUAL ORBITALS, PLEASE CHECK THIS.
+ LAST FEW SVD EIGENVALUES KEPT AS VALENCE:
+    0.9875911535   0.9782054154   0.9760450059
+ FIRST FEW SVD EIGENVALUES REJECTED AS EXTERNAL:
+
+
+ THE QUASIATOMIC MINIMAL-BASIS-SET ORBITALS (QUAMBO'S) HAVE BEEN PUNCHED.
+ THE    7 QUAMBO'S ARE MOLECULAR ORBITALS WHICH
+    A) ARE MUTUALLY ORTHONORMAL,
+    B) SPAN THE    4 DIMENSIONAL OCCUPIED ORBITAL SPACE OF THIS MOLECULE
+       EXACTLY, AND    3 ADDITIONAL VALENCE VIRTUAL ORBITALS,
+    C) ARE AS CLOSE AS POSSIBLE TO THE FREE ATOM AO'S (IN THE SENSE OF 
+       MAXIMUM OVERLAP), WHILE SATISFYING "A" AND "B".
+
+ USING THE RHF FOCK MATRIX TO CANONICALIZE THE VVOS.
+
+ VIRTUAL VALENCE ORBITAL GENERATION IS FINISHED.
+ THE VIRTUAL VALENCE ORBITALS ARE A QUANTIFICATION OF THE FRONTIER ORBITAL
+ SPACE (I.E. LUMO, LUMO+1, ...) WITHIN THE HARTREE-FOCK APPROXIMATION.
+ THE    4 OCCUPIED AND    3 VIRTUAL ORBITALS PRINTED BELOW ARE
+      FIRST, THE OCCUPIED CANONICAL ORBITALS (    1-    4)
+     SECOND, THE VIRTUAL VALENCE ORBITALS    (    5-    7)
+      THIRD, THE EXTERNAL VIRTUAL ORBITALS   (    0-    0)
+ NOTE THAT THE VIRTUAL SPACE IS ONLY SEMI-CANONICALIZED, MEANING THAT
+ THE FOCK OPERATOR IS DIAGONAL ONLY WITHIN ITS VALENCE AND EXTERNAL
+ VIRTUAL SUBBLOCKS.  THE VIRTUAL "EIGENVALUES" BELOW ARE THESE DIAGONALS,
+ WHICH ARE EXPECTATION VALUES OF THE FOCK OPERATOR, NOT ITS EIGENVALUES.
+
+          ------------
+          EIGENVECTORS
+          ------------
+
+                      1          2          3          4          5
+                  -10.6188    -0.8205    -0.5149    -0.2795     0.2459
+                     A1         A1         B1         A1         B2  
+    1  C  1  S    0.983734  -0.243675   0.000000   0.165844   0.000000
+    2  C  1  S    0.063273   0.641662   0.000000  -0.643100   0.000000
+    3  C  1  X   -0.000000   0.000000   0.520733  -0.000000   0.000000
+    4  C  1  Y   -0.000000   0.000000   0.000000  -0.000000   1.000000
+    5  C  1  Z    0.011358   0.170910   0.000000   0.766041   0.000000
+    6  H  2  S   -0.016439   0.285809  -0.462540   0.227438   0.000000
+    7  H  3  S   -0.016439   0.285809   0.462540   0.227438   0.000000
+
+                      6          7
+                    0.7165     0.7715
+                     A1         B1  
+    1  C  1  S   -0.217216   0.000000
+    2  C  1  S    1.114002   0.000000
+    3  C  1  X   -0.000000   1.125147
+    4  C  1  Y   -0.000000   0.000000
+    5  C  1  Z    0.811132   0.000000
+    6  H  2  S   -0.904459   0.836937
+    7  H  3  S   -0.904459  -0.836937
+ ...... END OF RHF CALCULATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    35.38%
+
+     ----------------------------------------------------------------
+     PROPERTY VALUES FOR THE RHF   SELF-CONSISTENT FIELD WAVEFUNCTION
+     ----------------------------------------------------------------
+
+          -----------------
+          ENERGY COMPONENTS
+          -----------------
+
+         WAVEFUNCTION NORMALIZATION =       1.0000000000
+
+                ONE ELECTRON ENERGY =     -62.2411640490
+                TWO ELECTRON ENERGY =      18.8867585775
+           NUCLEAR REPULSION ENERGY =       6.1221376700
+                                      ------------------
+                       TOTAL ENERGY =     -37.2322678015
+
+ ELECTRON-ELECTRON POTENTIAL ENERGY =      18.8867585775
+  NUCLEUS-ELECTRON POTENTIAL ENERGY =     -99.4193946754
+   NUCLEUS-NUCLEUS POTENTIAL ENERGY =       6.1221376700
+                                      ------------------
+             TOTAL POTENTIAL ENERGY =     -74.4104984279
+               TOTAL KINETIC ENERGY =      37.1782306264
+                 VIRIAL RATIO (V/T) =       2.0014534628
+
+  ...... PI ENERGY ANALYSIS ......
+
+ ENERGY ANALYSIS:
+            FOCK ENERGY=    -24.4676470721
+          BARE H ENERGY=    -62.2411640490
+     ELECTRONIC ENERGY =    -43.3544055605
+         KINETIC ENERGY=     37.1782306264
+          N-N REPULSION=      6.1221376700
+           TOTAL ENERGY=    -37.2322678905
+        SIGMA PART(1+2)=    -43.3544055605
+               (K,V1,2)=     37.1782306264    -99.4193946754     18.8867584884
+           PI PART(1+2)=      0.0000000000
+               (K,V1,2)=      0.0000000000      0.0000000000      0.0000000000
+  SIGMA SKELETON, ERROR=    -37.2322678905     -0.0000000000
+             MIXED PART= 0.00000E+00 0.00000E+00 0.00000E+00 0.00000E+00
+ ...... END OF PI ENERGY ANALYSIS ......
+
+          ---------------------------------------
+          MULLIKEN AND LOWDIN POPULATION ANALYSES
+          ---------------------------------------
+
+     ATOMIC MULLIKEN POPULATION IN EACH MOLECULAR ORBITAL
+
+                      1          2          3          4
+
+                  2.000000   2.000000   2.000000   2.000000
+
+    1             2.004857   1.226436   0.911524   1.850337
+    2            -0.002428   0.386782   0.544238   0.074831
+    3            -0.002428   0.386782   0.544238   0.074831
+
+               ----- POPULATIONS IN EACH AO -----
+                             MULLIKEN      LOWDIN
+              1  C  1  S      1.98927     1.98637
+              2  C  1  S      1.62082     1.50434
+              3  C  1  X      0.91152     0.95700
+              4  C  1  Y      0.00000     0.00000
+              5  C  1  Z      1.47154     1.50761
+              6  H  2  S      1.00342     1.02234
+              7  H  3  S      1.00342     1.02234
+
+          ----- MULLIKEN ATOMIC OVERLAP POPULATIONS -----
+          (OFF-DIAGONAL ELEMENTS NEED TO BE MULTIPLIED BY 2)
+
+             1           2           3
+
+    1    5.3256171
+    2    0.3337681   0.6952578
+    3    0.3337681  -0.0256025   0.6952578
+
+          TOTAL MULLIKEN AND LOWDIN ATOMIC POPULATIONS
+       ATOM         MULL.POP.    CHARGE          LOW.POP.     CHARGE
+    1 C             5.993153    0.006847         5.955315    0.044685
+    2 H             1.003423   -0.003423         1.022342   -0.022342
+    3 H             1.003423   -0.003423         1.022342   -0.022342
+
+          -------------------------------
+          BOND ORDER AND VALENCE ANALYSIS     BOND ORDER THRESHOLD=0.050
+          -------------------------------
+
+                   BOND                       BOND                       BOND
+  ATOM PAIR DIST  ORDER      ATOM PAIR DIST  ORDER      ATOM PAIR DIST  ORDER
+    1   2  1.090  0.993        1   3  1.090  0.993
+
+                       TOTAL       BONDED        FREE
+      ATOM            VALENCE     VALENCE     VALENCE
+    1 C                 1.986       1.986      -0.000
+    2 H                 1.000       1.000      -0.000
+    3 H                 1.000       1.000      -0.000
+
+          ---------------------
+          ELECTROSTATIC MOMENTS
+          ---------------------
+
+ POINT   1           X           Y           Z (BOHR)    CHARGE
+                -0.000000    0.000000   -0.000000       -0.00 (A.U.)
+         DX          DY          DZ         /D/  (DEBYE)
+     0.000000   -0.000000    1.515763    1.515763
+ ...... END OF PROPERTY EVALUATION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.0 SECONDS, CPU UTILIZATION IS    35.63%
+
+     ------------------------------------------------------------
+     LOCAL_LMOSVD NOW LOCALIZES ATOMIC BASIS ONTO MO SPACE.
+     ------------------------------------------------------------
+
+ CHECKING OUT ISVDOP OPTIONS.
+ USING SVD_AOSCF OPTION:  
+ FOR MBS ORBITALS, USE THE TRUE AOS FROM VVOS.
+ FOR MORE THAN MBS ORBITALS, USE SVD TO AO BASIS SET FOR THE EXTRA ORBITALS.
+
+
+ SVDVVOS ORMAS GROUPS.
+ THE NUMBER OF SPACES             =   1
+ EACH SPACE STARTS AT ORBITAL     =   2
+
+ DEFINING ORBITAL SIZES FOR VVOS RUN...
+
+ CHEMICAL     CORE    ORBTIALS =    1
+ ORIG. FILLED VALENCE ORBITALS =    3
+ ORIG. ACTIVE VALENCE ORBITALS =    6
+ ORIG. EMPTY  VALENCE ORIBTALS =    0
+ NEW   VIRTUAL        ORBITALS =   -3
+
+ READING L1,L0MBS SV MATRIX FOR AOS FROM THE VVOS RUN.
+ NOTES FOR SCFTYP=MCSCF:
+ 1. IF VVOS IN MCSCF IS FALSE,
+ DO NOT INSERT VVOS INTO CANONICAL MCSCF ORBITALS.
+ 2. IF RUN BOMBS, CHECK FOR DIMENSION ISSUE WITH DAF FILE 533.
+
+ BASIS SET CHECK IS DONE.
+ SVD_AOSCF OPTION FINDS   1 CORE ORBITALS FOR ATOM NUMBER=   1
+
+ ---CHECKING SVD--- AAMBS ARE USED FOR GROUP=   1
+
+ SVD EIGENVALUES NOW FOLLOW FOR ATOM NUMBER=   1
+ GROUP=   1     ACTIVE ORBITAL=   1     SVD EIGENVALUE=   0.9944340
+ GROUP=   1     ACTIVE ORBITAL=   2     SVD EIGENVALUE=   0.9833595
+ GROUP=   1     ACTIVE ORBITAL=   3     SVD EIGENVALUE=   0.9806920
+ GROUP=   1     ACTIVE ORBITAL=   4     SVD EIGENVALUE=   0.9782054
+
+ SVD EIGENVALUES NOW FOLLOW FOR ATOM NUMBER=   2
+ GROUP=   1     ACTIVE ORBITAL=   1     SVD EIGENVALUE=   0.9800248
+
+ SVD EIGENVALUES NOW FOLLOW FOR ATOM NUMBER=   3
+ GROUP=   1     ACTIVE ORBITAL=   1     SVD EIGENVALUE=   0.9800248
+
+ LOCAL_PPASVD KEEPS ORBITALS WITHIN ORMAS SUBSPACES.
+
+     ------------------------------------------------------------
+     ENTER LOCAL_MODELORB_DRIV.
+     ------------------------------------------------------------
+
+ LOCAL_MODELORB_JACOBI:
+ BEGIN LOCAL_MODELORB_JACOBI JACOBI ROTATIONS.
+
+ LOCAL_MODELORB_JACOBI:
+  -- NUMBER OF SWEEPS REQUIRED FOR CONVERGENCE =    8
+ ... DONE WITH LOCAL_MODELORB_DRIV ...
+
+ MO OVERLAP COMPARISON:
+ COMPARE NONORTHOGONAL AND ORTHOGONAL ORBITAL OVERLAPS
+ ORBITAL,MO OVERLAP=   1   1.0000000
+ ORBITAL,MO OVERLAP=   2   0.8943755
+ ORBITAL,MO OVERLAP=   3   0.9435355
+ ORBITAL,MO OVERLAP=   4   0.9833806
+ ORBITAL,MO OVERLAP=   5   1.0000000
+ ORBITAL,MO OVERLAP=   6   0.8997233
+ ORBITAL,MO OVERLAP=   7   0.8997233
+
+ FINAL SVD ORDERING SCHEME:
+ COUNT,ORMAS GROUP,ATOM,SVD VALUE=         1     1     1     0.9944340
+ COUNT,ORMAS GROUP,ATOM,SVD VALUE=         2     1     1     0.9833595
+ COUNT,ORMAS GROUP,ATOM,SVD VALUE=         3     1     1     0.9806920
+ COUNT,ORMAS GROUP,ATOM,SVD VALUE=         4     1     1     0.9782054
+ COUNT,ORMAS GROUP,ATOM,SVD VALUE=         5     1     2     0.9800248
+ COUNT,ORMAS GROUP,ATOM,SVD VALUE=         6     1     3     0.9800248
+
+ FINAL ATOM NUMBERS:
+ ATOM =   1     ACTIVE ORBITALS NUMBER=   4
+ ATOM =   2     ACTIVE ORBITALS NUMBER=   1
+ ATOM =   3     ACTIVE ORBITALS NUMBER=   1
+
+
+          NONORTHOGONAL PPA SVD LOCALIZED ORBITALS
+              7 ORBITALS ARE LOCALIZED BY SINGULAR VALUE DECOMPOSITION
+                INTO PURE PROJECTED ATOMIC ORBITALS.
+
+                      1          2          3          4          5
+
+    1  C  1  S    0.983734   0.315343   0.000000   0.042947   0.000000
+    2  C  1  S    0.063273  -0.984736  -0.000000  -0.176551   0.000000
+    3  C  1  X    0.000000   0.000000   0.919821  -0.000000  -0.000000
+    4  C  1  Y    0.000000  -0.000000   0.000000   0.000000   1.000000
+    5  C  1  Z    0.011358  -0.076642   0.000000   0.956180  -0.000000
+    6  H  2  S   -0.016439  -0.045452  -0.097777   0.067093   0.000000
+    7  H  3  S   -0.016439  -0.045452   0.097777   0.067093  -0.000000
+
+                      6          7
+
+    1  C  1  S   -0.093668  -0.093668
+    2  C  1  S    0.062968   0.062968
+    3  C  1  X   -0.018275   0.018275
+    4  C  1  Y    0.000000   0.000000
+    5  C  1  Z   -0.010253  -0.010253
+    6  H  2  S    0.957842   0.042535
+    7  H  3  S    0.042535   0.957842
+
+
+          PPA SVD LOCALIZED ORBITALS
+              7 ORBITALS ARE LOCALIZED BY SINGULAR VALUE DECOMPOSITION
+                INTO PURE PROJECTED ATOMIC ORBITALS.
+
+                      1          2          3          4          5
+
+    1  C  1  S    0.983734   0.364448  -0.000000   0.023696   0.000000
+    2  C  1  S    0.063273  -1.347758   0.000000  -0.033333   0.000000
+    3  C  1  X    0.000000   0.000000   1.143267   0.000000  -0.000000
+    4  C  1  Y    0.000000  -0.000000   0.000000   0.000000   1.000000
+    5  C  1  Z    0.011358  -0.294047  -0.000000   1.042014  -0.000000
+    6  H  2  S   -0.016439   0.395081   0.222861  -0.107523   0.000000
+    7  H  3  S   -0.016439   0.395081  -0.222861  -0.107524  -0.000000
+
+                      6          7
+
+    1  C  1  S    0.018449   0.018449
+    2  C  1  S   -0.352664  -0.352664
+    3  C  1  X    0.339159  -0.339159
+    4  C  1  Y    0.000000  -0.000000
+    5  C  1  Z   -0.225509  -0.225509
+    6  H  2  S    1.283572  -0.031525
+    7  H  3  S   -0.031525   1.283572
+
+ LOCAL_SETUP_PPADEN:  STARTING WITH RHF DENSITY.
+
+ DENSITY MATRIX FOR VVOS BEFORE ORTHORGONAL
+ QUASI-ATOMIC SVD MO ORBITAL TRANSFORMATION.
+
+             1           2           3           4           5
+
+    1    2.0000000
+    2    0.0000000   2.0000000
+    3    0.0000000   0.0000000   2.0000000
+    4    0.0000000   0.0000000   0.0000000   0.0000000
+    5    0.0000000   0.0000000   0.0000000   0.0000000   0.0000000
+    6    0.0000000   0.0000000   0.0000000   0.0000000   0.0000000
+
+             6
+
+    6    0.0000000
+
+ DENSITY MATRIX IN THE NONORTHOGONAL SVD QUAO BASIS
+ OVER ACTIVE ORBITALS IS
+
+             1           2           3           4           5
+
+    1    1.3820155
+    2    0.0000000   0.6014240
+    3    0.7210036   0.0000000   1.4715229
+    4    0.0000000   0.0000000   0.0000000   0.0000000
+    5   -0.1142028  -0.4899814   0.3951051   0.0000000   0.5973643
+    6   -0.1142028   0.4899814   0.3951051   0.0000000  -0.2010135
+
+             6
+
+    6    0.5973643
+
+ ACTIVE ORBITAL=    1   MULLIKEN POPULATION= 1.519
+
+ ACTIVE ORBITAL=    2   MULLIKEN POPULATION= 1.009
+
+ ACTIVE ORBITAL=    3   MULLIKEN POPULATION= 1.656
+
+ ACTIVE ORBITAL=    4   MULLIKEN POPULATION= 0.000
+
+ ACTIVE ORBITAL=    5   MULLIKEN POPULATION= 0.908
+
+ ACTIVE ORBITAL=    6   MULLIKEN POPULATION= 0.908
+
+ DENSITY MATRIX IN THE ORTHOGONAL QUASI-ATOMIC SVD MO BASIS
+ OVER ACTIVE ORBITALS IS
+
+             1           2           3           4           5
+
+    1    1.3492909
+    2   -0.0000002   1.0904655
+    3    0.4534369  -0.0000003   1.6840292
+    4    0.0000000   0.0000000   0.0000000   0.0000000
+    5   -0.5798237  -0.7042074   0.4040412   0.0000000   0.9381071
+    6   -0.5798234   0.7042073   0.4040417   0.0000000   0.0285727
+
+             6
+
+    6    0.9381071
+
+ ATOM    1   SVD POPULATION =4.124   GREATER THAN 0.100 CONTRIBUTIONS=4.124
+
+ ATOM    2   SVD POPULATION =0.938   GREATER THAN 0.100 CONTRIBUTIONS=0.938
+
+ ATOM    3   SVD POPULATION =0.938   GREATER THAN 0.100 CONTRIBUTIONS=0.938
+
+
+ VVOS RESETS BACK TO ORIGINAL ORMAS GROUPS.
+ THE NUMBER OF SPACES             =   0
+ EACH SPACE STARTS AT ORBITAL     =
+ ... DONE WITH SVD LOCALIZATION ...
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    37.15%
+
+          --------------------------------------------------
+          IVANIC-RUEDENBERG QUASI-ATOMIC ORBITAL ORIENTATION
+          --------------------------------------------------
+
+
+ SVDVVOS ORMAS GROUPS.
+ THE NUMBER OF SPACES             =   1
+ EACH SPACE STARTS AT ORBITAL     =   2
+
+ DEFINING ORBITAL SIZES FOR VVOS RUN...
+
+ CHEMICAL     CORE    ORBTIALS =    1
+ ORIG. FILLED VALENCE ORBITALS =    3
+ ORIG. ACTIVE VALENCE ORBITALS =    6
+ ORIG. EMPTY  VALENCE ORIBTALS =    0
+ NEW   VIRTUAL        ORBITALS =   -3
+
+ RE-DEFINING ORBITAL SIZES FOR VVOS RUN...
+
+ CHEMICAL     CORE    ORBTIALS =    1
+ ORIG. FILLED VALENCE ORBITALS =    3
+ ORIG. ACTIVE VALENCE ORBITALS =    6
+ ORIG. EMPTY  VALENCE ORIBTALS =    0
+ NEW   VIRTUAL        ORBITALS =   -3
+
+ THIS ORIENTATION REQUIRES       868 WORDS OF MEMORY.
+
+ THIS WAVEFUNCTION HAS   7 OCCUPIED ORBITALS OF WHICH   1 ARE CORE.
+ THERE WERE  1 ORBITALS FROZEN IN THE LOCALIZATION.  THESE ARE: 
+     1
+ THEY WILL BE MOVED TO THE BEGINNING OF THE ORBITAL LIST
+ AND OMITTED FROM THE ORIENTATION ANALYSIS.
+
+ ** MULLIKEN ATOMIC POPULATIONS FOR EACH NON-FROZEN LOCALIZED ORBITAL **
+ POPULATIONS SUM TO 1 E- PER ORBITAL, AND SO ARE STRICTLY FOR THE
+ PURPOSE OF ASSIGNING ORBITALS TO ATOMS OR BONDS.
+
+   ATOM   1 C    2 H    3 H   
+ LMO
+   1     1.204 -0.102 -0.102
+   2     1.112 -0.056 -0.056
+   3     1.030 -0.015 -0.015
+   4     1.000  0.000  0.000
+   5    -0.174  1.177 -0.002
+   6    -0.174 -0.002  1.177
+
+ ** ATOMIC POPULATIONS GREATER THAN 0.30 ARE CONSIDERED MAJOR **
+
+  LMO   MAJOR CONTRIBUTIONS FROM ATOM(S)
+    1   1 C 
+    2   1 C 
+    3   1 C 
+    4   1 C 
+    5   2 H 
+    6   3 H 
+ ILOCAL=4 SVD RUNS MUST ALWAYS RESET IATM ARRAYS AND NOSET TO MATCH SVD ATOM ASSIGNMENTS.
+
+ NO OF LMOS INVOLVING MORE THAN ONE ATOM =  0
+ LMOS WILL BE REORDERED ACCORDING TO WHICH ATOM THEY BELONG TO
+ I.E. LMOS ON ATOM 1 COME FIRST, ETC..
+
+ ***********************************************
+     ORIENTING FIRST   6 NON-FROZEN ORBITALS    
+ ***********************************************
+
+ ROTATION ANGLES WILL BE CONVERGED TO  1.00E-06
+ NUMBER OF ANGLES IN A SWEEP =      6
+
+  -- NUMBER OF SWEEPS REQUIRED FOR CONVERGENCE =    4
+
+
+ LOCAL_PHASE_CHECK: CHECKING PHASES OF DENSITY AND ORBITALS.
+
+
+
+ ORIGINAL ORIENTED DENSITY MATRIX
+
+
+             1           2           3           4           5
+
+    1    2.0000000
+    2    0.0000001   1.0618929
+    3   -0.0000000   0.0285727   1.0618929
+    4    0.0000000   0.0000000   0.0000000   0.0000000
+    5   -0.0000001   0.9976722  -0.0017726  -0.0000000   0.9381071
+    6    0.0000000   0.0017726  -0.9976722  -0.0000000   0.0285727
+
+             6
+
+    6    0.9381071
+
+
+
+ MULTIPLY DENSITY ELEMENTS BY KINETIC ENERGY INTEGRALS FOR NOVEL DENSITY MATRIX.
+ FULL PRINT OUT OF NOVEL ORIENTED DENSITY
+
+
+             1           2           3           4           5
+
+    1    3.3772375
+    2    0.0000000   2.2250084
+    3    0.0000000  -0.0101961   2.2250083
+    4    0.0000000   0.0000000   0.0000000   0.0000000
+    5    0.0000000  -0.6451894  -0.0000493  -0.0000000   1.0727873
+    6   -0.0000000  -0.0000493  -0.6451893  -0.0000000  -0.0030795
+
+             6
+
+    6    1.0727873
+
+ OLD TOTAL KINETIC ENERGY =       37.1782306264
+ NEW TOTAL KINETIC ENERGY =       37.1782306264
+
+ PRINT OFF ORIENTATION INFORMATION FOR VALENCE ORBITAL CHARACTER PERCENT.
+
+  ORB I  PERCENT S    PERCENT P    PERCENT D    PERCENT F
+    2    0.4063399    0.5936601    0.0000000    0.0000000
+    3    0.2584932    0.7415068    0.0000000    0.0000000
+    4    0.2584931    0.7415069    0.0000000    0.0000000
+    5    0.0000000    1.0000000    0.0000000    0.0000000
+    6    1.0000000    0.0000000    0.0000000    0.0000000
+    7    1.0000000    0.0000000    0.0000000    0.0000000
+
+ END OF CURRENT INFORMATION
+
+ LOCAL_ORIENBOS_ASSIGN_ORBTYP TOLERANCES:
+ TOLSBO   =  0.40
+ TOLLPOCC =  1.80
+ TOLRDOCC =  0.40
+ TOLOVRLP =  0.20
+ TOLNV    =  0.40
+
+ PRINT OFF ORIENTATION INFORMATION BY KEI-BO MAGNITUDE.
+
+ BOND ORDER     KEI-BO     ORB I     OCC I     ATM I     ORBTYP I     ORB J     OCC J     ATM J     ORBTYP J
+    0.9976722   -0.6451894    6    0.9381071 H     2 ( C     1 ) SIGMA      3    1.0618929 C     1 ( H     2 ) SIGMA  
+   -0.9976722   -0.6451893    7    0.9381071 H     3 ( C     1 ) SIGMA      4    1.0618929 C     1 ( H     3 ) SIGMA  
+    0.0285727   -0.0101961    4    1.0618929 C     1 ( H     3 ) SIGMA      3    1.0618929 C     1 ( H     2 ) SIGMA  
+    0.0285727   -0.0030795    7    0.9381071 H     3 ( C     1 ) SIGMA      6    0.9381071 H     2 ( C     1 ) SIGMA  
+
+ END OF CURRENT INFORMATION
+
+ PRINT OFF ORIENTATION INFORMATION BY OCCUPATION MAGNITUDE.
+
+ OCCUPATION     KEI-OCC I     ORB I     ATM I     ORBTYP I
+    2.0000000    3.3772375    2 C     1 ( NWB   0 ) PLP    
+    1.0618929    2.2250084    3 C     1 ( H     2 ) SIGMA  
+    1.0618929    2.2250083    4 C     1 ( H     3 ) SIGMA  
+    0.9381071    1.0727873    7 H     3 ( C     1 ) SIGMA  
+    0.9381071    1.0727873    6 H     2 ( C     1 ) SIGMA  
+
+ END OF CURRENT INFORMATION
+
+ INTERATOMIC KEI-BO SUM       -2.5871134500
+
+
+          ORIENTED LOCALIZED ORBITALS
+
+                      1          2          3          4          5
+
+    1  C  1  S    0.983734   0.227803   0.201853  -0.201853   0.000000
+    2  C  1  S    0.063273  -0.797886  -0.768421   0.768421   0.000000
+    3  C  1  X    0.000000  -0.000000   0.808412   0.808412  -0.000000
+    4  C  1  Y    0.000000   0.000000   0.000000   0.000000   1.000000
+    5  C  1  Z    0.011358   0.686808  -0.591840   0.591840  -0.000000
+    6  H  2  S   -0.016439   0.137658   0.430259  -0.115086   0.000000
+    7  H  3  S   -0.016439   0.137658   0.115086  -0.430259  -0.000000
+
+                      6          7
+
+    1  C  1  S   -0.018449  -0.018449
+    2  C  1  S    0.352664   0.352664
+    3  C  1  X   -0.339159   0.339159
+    4  C  1  Y   -0.000000   0.000000
+    5  C  1  Z    0.225509   0.225509
+    6  H  2  S   -1.283572   0.031525
+    7  H  3  S    0.031525  -1.283572
+ ... DONE WITH ORIENTATION ...
+
+
+ VVOS RESETS BACK TO ORIGINAL ORMAS GROUPS.
+ THE NUMBER OF SPACES             =   0
+ EACH SPACE STARTS AT ORBITAL     =
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    38.07%
+
+     ------------------------------------------------------------
+     LOCAL_LCAO_WGHTS NOW ANALYZES ATOMIC WEIGHTS SQUARED
+     OF LCAO AND MO OVERLAP OF ORBITAL SET DEFINED BELOW.
+     ------------------------------------------------------------
+
+ NOW USING LCAO COEFFICIENTS IN THE ANALYSIS... 
+
+ THE RELATIVE WEIGHTS SQUARED NOW FOLLOW.
+ ORBITAL DAF FILE =  286
+ ATOM DAF FILE    =  528
+ ROWS=ATOMS,COLUMNS=MOS
+ INCLUDES CORE ORBITALS ON UP...
+ NUMBER OF ATOMS =    3
+ NUMBER OF MOS   =    7
+
+             1           2           3           4           5
+
+    1    0.9994442   0.9683678   0.8918025   0.8918025   1.0000000
+    2    0.0002779   0.0158161   0.1009732   0.0072242   0.0000000
+    3    0.0002779   0.0158161   0.0072242   0.1009732   0.0000000
+
+             6           7
+
+    1    0.1498573   0.1498573
+    2    0.8496302   0.0005125
+    3    0.0005125   0.8496302
+
+ NOW USING LCAO COEFFICIENTS IN THE ANALYSIS... 
+
+
+ FOR EACH MOLECULAR ORBITAL,
+ 1. THE MAXIMUM RELATIVE COEFFICIENT SQUARES ARE LOCATED.
+ 2. THESE MAXIMUM COEFFICIENTS ARE SUMMED UP.
+ 3. WHEN THE SUM IN POINT 2 REACHES THE CUTOFF
+    WITHOUT ANY DEGENERACY IN THE COEFFICIENTS,
+    THE ATOM LABELS ARE NO LONGER ASSIGNED.
+    CUTOFF=  9.00E-01
+ 4. FOR MO OVERLAPS,
+    VALUES OF 1 DO NOT NECCESARILY INDICATE
+    ORBITAL OVERLAPS OF 1... QUITE THE CONTRARY.
+ 5. THE DISPLAYED ATOM LABELS ARE READ FROM
+    THE SVD ITSELF.  FOR DAF534, THE MO OVERLAPS
+    ARE STILL FORMED WITH SVD ORBITALS.
+    SO SVD ATOM LABELS ARE SUFFICIENT FOR NOW.
+ 6. DO NOT APPLY TO MALMQ_CIDRIV RESULTS.
+ MO=    1 HAS ATOM(S)=    1
+          WITH WEIGHT(S)= 1.00
+ MO=    2 HAS ATOM(S)=    1
+          WITH WEIGHT(S)= 0.97
+ MO=    3 HAS ATOM(S)=    1    2
+          WITH WEIGHT(S)= 0.89 0.10
+ MO=    4 HAS ATOM(S)=    1    3
+          WITH WEIGHT(S)= 0.89 0.10
+ MO=    5 HAS ATOM(S)=    1
+          WITH WEIGHT(S)= 1.00
+ MO=    6 HAS ATOM(S)=    1    2
+          WITH WEIGHT(S)= 0.15 0.85
+ MO=    7 HAS ATOM(S)=    1    3
+          WITH WEIGHT(S)= 0.15 0.85
+
+ A SET OF ATOMIC-LIKE MOLECULAR ORBITALS MUST BE CHOSEN FOR A RELATIVE COMPARISON...
+ USING NONORTHOGONAL ORBITALS FROM DAF FILE= 521
+
+ NOW USING MO OVERLAP COEFFICIENTS IN THE ANALYSIS... 
+
+ THE RELATIVE WEIGHTS SQUARED NOW FOLLOW.
+ ORBITAL DAF FILE =  286
+ ATOM DAF FILE    =  528
+ ROWS=ATOMS,COLUMNS=MOS
+ INCLUDES CORE ORBITALS ON UP...
+ NUMBER OF ATOMS =    3
+ NUMBER OF MOS   =    7
+
+             1           2           3           4           5
+
+    1    1.0000000   1.0000000   1.0000000   1.0000000   1.0000000
+    2    0.0000000   0.0000000   0.0000000   0.0000000   0.0000000
+    3    0.0000000   0.0000000   0.0000000   0.0000000   0.0000000
+
+             6           7
+
+    1    0.0000000   0.0000000
+    2    1.0000000   0.0000000
+    3    0.0000000   1.0000000
+
+ NOW USING MO OVERLAP COEFFICIENTS IN THE ANALYSIS... 
+
+
+ FOR EACH MOLECULAR ORBITAL,
+ 1. THE MAXIMUM RELATIVE COEFFICIENT SQUARES ARE LOCATED.
+ 2. THESE MAXIMUM COEFFICIENTS ARE SUMMED UP.
+ 3. WHEN THE SUM IN POINT 2 REACHES THE CUTOFF
+    WITHOUT ANY DEGENERACY IN THE COEFFICIENTS,
+    THE ATOM LABELS ARE NO LONGER ASSIGNED.
+    CUTOFF=  9.00E-01
+ 4. FOR MO OVERLAPS,
+    VALUES OF 1 DO NOT NECCESARILY INDICATE
+    ORBITAL OVERLAPS OF 1... QUITE THE CONTRARY.
+ 5. THE DISPLAYED ATOM LABELS ARE READ FROM
+    THE SVD ITSELF.  FOR DAF534, THE MO OVERLAPS
+    ARE STILL FORMED WITH SVD ORBITALS.
+    SO SVD ATOM LABELS ARE SUFFICIENT FOR NOW.
+ 6. DO NOT APPLY TO MALMQ_CIDRIV RESULTS.
+ MO=    1 HAS ATOM(S)=    1
+          WITH WEIGHT(S)= 1.00
+ MO=    2 HAS ATOM(S)=    1
+          WITH WEIGHT(S)= 1.00
+ MO=    3 HAS ATOM(S)=    1
+          WITH WEIGHT(S)= 1.00
+ MO=    4 HAS ATOM(S)=    1
+          WITH WEIGHT(S)= 1.00
+ MO=    5 HAS ATOM(S)=    1
+          WITH WEIGHT(S)= 1.00
+ MO=    6 HAS ATOM(S)=    2
+          WITH WEIGHT(S)= 1.00
+ MO=    7 HAS ATOM(S)=    3
+          WITH WEIGHT(S)= 1.00
+ ... DONE WITH LCAO RELATIVE ATOMIC WEIGHTS SQUARED ...
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =          0.0 (      0.0 MIN)
+ TOTAL WALL CLOCK TIME=          0.1 SECONDS, CPU UTILIZATION IS    38.20%
+               580000  WORDS OF DYNAMIC MEMORY USED
+ EXECUTION OF GAMESS TERMINATED NORMALLY 13:05:41 06-JUN-2025    
+ DDI: 263640 bytes (0.3 MB / 0 MWords) used by master data server.
+
+ ----------------------------------------
+ CPU timing information for all processes
+ ========================================
+ 0: 0.10 + 0.15 = 0.25
+ ----------------------------------------
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG IEEE_DIVIDE_BY_ZERO
+ ddikick.x: exited gracefully.
+unset echo
+----- accounting info -----
+Files used on the parent node Monkeybutt-4.local were:
+-rw-r--r--  1 gschoend  staff     6012 Jun  6 13:05 ./quao.dat
+-rw-r--r--  1 gschoend  staff      344 Jun  6 13:05 ./quao.F05
+-rw-r--r--  1 gschoend  staff   180016 Jun  6 13:05 ./quao.F08
+-rw-r--r--  1 gschoend  staff  2617600 Jun  6 13:05 ./quao.F10
+-rw-r--r--  1 gschoend  staff   130880 Jun  6 13:05 ./quao.F26R
+-rw-r--r--  1 gschoend  staff        0 Jun  6 13:05 ./quao.F27R
+-rw-r--r--  1 gschoend  staff      344 Jun  6 13:05 ./quao.inp
+-rw-r--r--  1 gschoend  staff    48225 Jun  6 13:05 ./quao.log
+ls: No match.
+ls: No match.
+ls: No match.
+Fri Jun  6 13:05:43 CDT 2025
+0.089u 0.114s 0:01.26 15.0%	0+0k 0+0io 432pf+0w
