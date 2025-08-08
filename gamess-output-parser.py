@@ -141,87 +141,18 @@ class GAMESSParser:
                 i += 1
         
         return matrix
-    def extract_kei_bond_orders(self) -> Dict:
-        """Extract kinetic energy interaction bond orders (KEI-BO)."""
-        # Updated pattern to match the actual format in the log
-        pattern = r'BOND ORDER\s+KEI-BO.*?ORB J.*?ORBTYP J\s+(.*?)(?=\n\s*END OF CURRENT|$)'
-        match = re.search(pattern, self.content, re.DOTALL)
-        
-        if not match:
-            return {'bonds': []}
-        
-        bonds = []
-        lines = match.group(1).strip().split('\n')
-        
-        for line in lines:
-            line = line.strip()
-            if not line or line.startswith('BOND ORDER'):
-                continue
-                
-            # Use regex to parse the specific format more carefully
-            # Format: BOND_ORDER KEI-BO ORB_I OCC_I ATOM_I NUM_I ( PARENT_I NUM_PARENT_I ) ORBTYP_I ORB_J OCC_J ATOM_J NUM_J ( PARENT_J NUM_PARENT_J ) ORBTYP_J
-            pattern_line = r'^\s*([-+]?\d*\.?\d+)\s+([-+]?\d*\.?\d+)\s+(\d+)\s+([-+]?\d*\.?\d+)\s+([A-Z]+)\s+(\d+)\s+\(\s*([A-Z]+)\s+(\d+)\s*\)\s+([A-Z]+)\s+(\d+)\s+([-+]?\d*\.?\d+)\s+([A-Z]+)\s+(\d+)\s+\(\s*([A-Z]+)\s+(\d+)\s*\)\s+([A-Z]+)'
-            
-            match_line = re.match(pattern_line, line)
-            if match_line:
-                try:
-                    bond_order = float(match_line.group(1))
-                    kei_bo = float(match_line.group(2))
-                    orb_i = int(match_line.group(3))
-                    occ_i = float(match_line.group(4))
-                    atom_i = match_line.group(5)
-                    atom_i_num = int(match_line.group(6))
-                    parent_i = match_line.group(7)
-                    parent_i_num = int(match_line.group(8))
-                    orbtyp_i = match_line.group(9)
-                    orb_j = int(match_line.group(10))
-                    occ_j = float(match_line.group(11))
-                    atom_j = match_line.group(12)
-                    atom_j_num = int(match_line.group(13))
-                    parent_j = match_line.group(14)
-                    parent_j_num = int(match_line.group(15))
-                    orbtyp_j = match_line.group(16)
-                    
-                    bonds.append({
-                        'bond_order': bond_order,
-                        'kei_bo': kei_bo,
-                        'orb_i': orb_i,
-                        'occ_i': occ_i,
-                        'atom_i': atom_i,
-                        'atom_i_num': atom_i_num,
-                        'parent_i': parent_i,
-                        'parent_i_num': parent_i_num,
-                        'orbtyp_i': orbtyp_i,
-                        'orb_j': orb_j,
-                        'occ_j': occ_j,
-                        'atom_j': atom_j,
-                        'atom_j_num': atom_j_num,
-                        'parent_j': parent_j,
-                        'parent_j_num': parent_j_num,
-                        'orbtyp_j': orbtyp_j
-                    })
-                except (ValueError, IndexError) as e:
-                    print(f"DEBUG: Failed to parse KEI-BO line: {line}")
-                    print(f"DEBUG: Error: {e}")
-                    continue
-            else:
-                print(f"DEBUG: Regex didn't match KEI-BO line: {line}")
-        
-        return {'bonds': bonds}
     
     def parse_all(self) -> Dict:
         """Parse all information from the GAMESS output file."""
         coords = self.extract_coordinates()
         density_matrix = self.extract_original_density_matrix()
         ke_matrix = self.extract_ke_density_matrix()
-        kei_bonds = self.extract_kei_bond_orders()
         
         return {
             'coordinates': coords,
             'internuclear_distances': self.extract_internuclear_distances(),
             'original_density_matrix': density_matrix,
-            'ke_density_matrix': ke_matrix,
-            'kei_bond_orders': kei_bonds
+            'ke_density_matrix': ke_matrix
         }
     
     def print_summary(self):
@@ -233,9 +164,6 @@ class GAMESSParser:
         
         # Internuclear distances
         self._print_internuclear_distances(results['internuclear_distances'])
-        
-        # KEI Bond Orders (parsed directly from GAMESS output)
-        self._print_kei_bond_orders(results['kei_bond_orders'])
         
         # Density matrices (extracted directly from GAMESS output)
         self._print_matrix('Original Oriented Density Matrix', results['original_density_matrix'])
@@ -314,27 +242,6 @@ class GAMESSParser:
         
         if matrix.shape[0] > 50:
             print("  ...")
-    
-    def _print_kei_bond_orders(self, kei_data):
-        """Print KEI bond order information with physical interpretation."""
-        if not kei_data['bonds']:
-            return
-        
-        print(f"\nKinetic Energy Interaction Bond Orders (KEI-BO):")
-        print("  • Negative values: Bonding interactions | Positive values: Anti-bonding")
-        print("  • Larger |KEI-BO|: Stronger kinetic energy interaction")
-        print()
-        
-        print("  Bond Order    KEI-BO      Atom I      Orbital I    Atom J      Orbital J")
-        print("  " + "-"*72)
-        
-        for bond in kei_data['bonds']:
-            atom_i_label = f"{bond['atom_i']}{bond['atom_i_num']}({bond['parent_i']}{bond['parent_i_num']})"
-            atom_j_label = f"{bond['atom_j']}{bond['atom_j_num']}({bond['parent_j']}{bond['parent_j_num']})"
-            
-            print(f"  {bond['bond_order']:10.6f}  {bond['kei_bo']:10.6f}    "
-                  f"{atom_i_label:10s}  {bond['orbtyp_i']:8s}     "
-                  f"{atom_j_label:10s}  {bond['orbtyp_j']:8s}")
 
 
 def main():
