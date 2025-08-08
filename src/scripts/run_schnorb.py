@@ -490,14 +490,40 @@ if __name__ == '__main__':
     orbital_energies = hamiltonian_data.get_metadata('orbital_energies')
     orbital_energies = None if basisdef is None else np.array(orbital_energies)
 
-    # split data
+    # split data manually since create_splits is deprecated
     split_path = os.path.join(args.modelpath, 'split.npz')
-    if args.mode == 'train':
-        if args.split_path is not None:
-            copyfile(args.split_path, split_path)
-
-    data_train, data_val, data_test = hamiltonian_data.create_splits(
-        *train_args.split, split_file=split_path)
+    
+    # Load or create data splits
+    if args.mode == 'train' and args.split_path is not None:
+        copyfile(args.split_path, split_path)
+    
+    if os.path.exists(split_path):
+        split_data = np.load(split_path)
+        train_idx = split_data['train_idx']
+        val_idx = split_data['val_idx'] 
+        test_idx = split_data['test_idx']
+    else:
+        # Create default splits if not specified
+        n_data = len(hamiltonian_data)
+        indices = np.arange(n_data)
+        np.random.shuffle(indices)
+        
+        # Use default split ratios if not specified
+        train_size = train_args.split[0] if train_args.split[0] is not None else int(0.8 * n_data)
+        val_size = train_args.split[1] if train_args.split[1] is not None else int(0.1 * n_data)
+        
+        train_idx = indices[:train_size]
+        val_idx = indices[train_size:train_size + val_size]
+        test_idx = indices[train_size + val_size:]
+        
+        # Save splits for reproducibility
+        if args.mode == 'train':
+            np.savez(split_path, train_idx=train_idx, val_idx=val_idx, test_idx=test_idx)
+    
+    # Create data subsets
+    data_train = hamiltonian_data.create_subset(train_idx)
+    data_val = hamiltonian_data.create_subset(val_idx)
+    data_test = hamiltonian_data.create_subset(test_idx)
 
     data_val.add_rotations = False
     data_test.add_rotations = False
