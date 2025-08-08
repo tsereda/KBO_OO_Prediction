@@ -45,8 +45,12 @@ spec:
 
           wget https://a002dlils-kadurin-nabladft.obs.ru-moscow-1.hc.sbercloud.ru/data/nablaDFTv2/models_checkpoints/schnorb/model_2k_split.pt
 
-          python src/scripts/run_schnorb.py eval schnet example_data/h2o_hamiltonians.db temp_model_dir --split test --batch_size 8 --cuda
-          PYTHONPATH=/app/brats-synthesis/src python src/scripts/run_schnorb.py eval schnet example_data/h2o_hamiltonians.db temp_model_dir --split test --batch_size 8 --cuda
+          cd
+
+          python setup.py
+
+          python run_schnorb.py eval schnet example_data/h2o_hamiltonians.db temp_model_dir --split test --batch_size 8 --cuda
+          #PYTHONPATH=/app/brats-synthesis/src python src/scripts/run_schnorb.py eval schnet example_data/h2o_hamiltonians.db temp_model_dir --split test --batch_size 8 --cuda
           
           tail -f /dev/null
      

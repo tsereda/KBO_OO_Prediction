@@ -11,3 +11,9 @@ ORBLIST(1) = 1,1,4,1
 ATLIST(1) = ? (Methalyne)
 
 go through log
+
+n-1 = total # nodes (n>0) 
+l = # angular nodes Shape
+Me orientation projection onto bonding axist orientation Spin
+
+spdf
