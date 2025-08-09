@@ -39,6 +39,27 @@ spec:
       command: ["/bin/bash", "-c"]
       args:
         - |
+          sudo apt-get update
+          sudo apt-get install csh gfortran-9 libopenblas-dev -y
+
+          sudo cp /data/gamess.zip .
+          
+          unzip gamess.zip
+          cd gamess
+          #./config
+          #/usr/lib/x86_64-linux-gnu
+
+          sudo ln -s /usr/bin/gfortran-9 /usr/bin/gfortran
+          ./bin/create-install-info.py --fortran_version 9.5.0
+
+          ./tools/lapack/download-lapack.csh
+          make lapack
+          
+          make -j$(nproc)
+          mkdir restart
+          ./rungms exam01 00 1
+
+          gfortran -v
 
           tail -f /dev/null
      
