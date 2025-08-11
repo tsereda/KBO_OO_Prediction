@@ -49,6 +49,8 @@ spec:
           # Install MPI
           sudo apt install libopenmpi-dev openmpi-bin
 
+          sudo apt install libscalapack-mpi-dev
+
           # Install FFTW library
           sudo apt install libfftw3-dev
 
