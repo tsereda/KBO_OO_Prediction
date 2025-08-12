@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: openmx-hamgnn
+  name: openmx
 spec:
   nodeSelector:
     #topology.kubernetes.io/region: us-west
@@ -38,28 +38,32 @@ spec:
 
       command: ["/bin/bash", "-c"]
       args:
-        - |
-          cp /data/openmx3.9.tar.gz .
+      - |
+        sudo apt update
+        sudo apt install -y gcc gfortran
+        sudo apt install -y libopenmpi-dev openmpi-bin
+        sudo apt install -y libscalapack-mpi-dev
+        sudo apt install -y libfftw3-dev
+        sudo apt install -y make build-essential
+        
+        tar -xzvf /data/openmx3.8.tar.gz
+        cd openmx3.8/source
+        
+        cp /data/makefile .
+        
+        make clean
+        make
+        
+        cd ../work
+        cp ../source/openmx .
 
-          sudo apt update
+        ls -la met.*
 
-          # Install compilers
-          sudo apt install gcc gfortran
-
-          # Install MPI
-          sudo apt install libopenmpi-dev openmpi-bin
-
-          sudo apt install libscalapack-mpi-dev
-
-          # Install FFTW library
-          sudo apt install libfftw3-dev
-
-          # Install additional development tools that might be needed
-          sudo apt install make build-essential
-
-          tar -xzvf openmx3.9.tar.gz 
-
-          tail -f /dev/null
+        mpirun -np 1 ./openmx Methane.dat > met.std 2>&1
+        
+        ls -la met.*
+        
+        tail -f /dev/null
      
       volumeMounts:
         - name: workspace
