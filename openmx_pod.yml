@@ -34,17 +34,18 @@ spec:
       effect: PreferNoSchedule
   containers:
     - name: brats-processing
-      image: gitlab-registry.nrp-nautilus.io/prp/jupyter-stack/prp
+      image: ubuntu
 
       command: ["/bin/bash", "-c"]
       args:
       - |
-        sudo apt update
-        sudo apt install -y gcc gfortran
-        sudo apt install -y libopenmpi-dev openmpi-bin
-        sudo apt install -y libscalapack-mpi-dev
-        sudo apt install -y libfftw3-dev
-        sudo apt install -y make build-essential
+        apt update
+        apt install -y gcc gfortran
+        apt install -y liblapack-dev libblas-dev
+        apt install -y libopenmpi-dev openmpi-bin
+        apt install -y libscalapack-mpi-dev
+        apt install -y libfftw3-dev
+        apt install -y make build-essential
         
         tar -xzvf /data/openmx3.8.tar.gz
         cd openmx3.8/source
@@ -59,7 +60,10 @@ spec:
 
         ls -la met.*
 
-        mpirun -np 1 ./openmx Methane.dat > met.std 2>&1
+        useradd -m -s /bin/bash openmx
+        chown -R openmx:openmx /openmx3.8
+        
+        su - openmx -c "cd /openmx3.8/work && mpirun -np 1 ./openmx Methane.dat > met.std 2>&1"
         
         ls -la met.*
         
